@@ -8,4 +8,12 @@
 <body>
     
 </body>
+<script>
+    const evtSource = new EventSource("/events")
+    evtSource.onmessage = function(event) {
+        const newElement = document.createElement("div")
+        newElement.innerHTML = "message: " + event.data
+        document.body.appendChild(newElement)
+    }
+</script>
 </html>
